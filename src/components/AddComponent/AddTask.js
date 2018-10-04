@@ -18,7 +18,9 @@ class AddTask extends Component {
             task,
             priority,
         }
-        this.props.addTodo(newToDo)
+        if (task !== '' && priority !== ''){
+            this.props.addTodo(newToDo)
+        }
     }
     render() {
         const {task, priority} = this.state;
