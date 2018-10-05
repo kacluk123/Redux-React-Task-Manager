@@ -1,58 +1,60 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
 import { connect } from 'react-redux'
 import {addTodo} from "../../actions/toDoActions";
+import {getTodo} from "../../actions/toDoActions";
 
 class AddTask extends Component {
     state = {
         task : '',
         priority: '',
+
     }
 
     onChange = e => this.setState({ [e.target.name]: e.target.value });
 
-    sendTodo = () => {
+     sendTodo = (e) => {
+        e.preventDefault()
         const {task, priority} = this.state;
-
         const newToDo = {
             task,
-            priority,
+            priority : Number(priority),
+            id: uuid(),
         }
         if (task !== '' && priority !== ''){
             this.props.addTodo(newToDo)
+            this.setState({
+                task : '',
+                priority: '',
+            })
+
         }
     }
     render() {
         const {task, priority} = this.state;
 
         return (
-            <div className='container'>
-                <div className="row">
-
-                        <div className="col-6">
-                        <div className="form-group">
-
-                            <input onChange={this.onChange} value={task} name="task" type="text" className="form-control" id="formGroupExampleInput"
-                                   placeholder="Type your task"></input>
+            <div style={{padding: '20px'}}className='container'>
+                <form onSubmit={this.sendTodo}>
+                    <div className="form-row">
+                        <div className="col-8">
+                            <input onChange={this.onChange} type="text" name="task" className="form-control" value={task} placeholder="Type a task"/>
                         </div>
-                    </div>
-                    <div className="col1-3">
-                        <div className="form-group">
-
-                            <input onChange={this.onChange} value={priority} name="priority" type="text" className="form-control" id="formGroupExampleInput"
-                                   placeholder="Type priority"></input>
-
+                        <div className="col">
+                            <input onChange={this.onChange} type="text" name="priority" className="form-control" value={priority} placeholder="Type a priority of a task"/>
                         </div>
+                        <input className="btn btn-primary" type="submit" value="Add task"/>
+
                     </div>
-                    <div className="col1-3">
-                        <button type="button" onClick={this.sendTodo} className="btn btn-primary btn-lg btn-block">Add task</button>
-                    </div>
-                </div>
+                </form>
+
+
             </div>
         );
     }
 }
 
-export default connect(null, {addTodo})(AddTask);
+export default connect(null, {addTodo, getTodo})(AddTask);
 
 

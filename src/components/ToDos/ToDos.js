@@ -4,20 +4,20 @@ import NewToDo from './newToDo'
 import {getTodo} from "../../actions/toDoActions";
 import {connect} from 'react-redux'
 class ToDos extends Component {
-    componentDidMount(){
-        this.props.getTodo();
-    }
-
     render() {
         const {toDos} = this.props;
         console.log(toDos)
         return (
-            <React.Fragment>
-                {toDos.map( todo => (
+            <div className='container'>
+                <div className="card">
+                    <ul className="list-group list-group-flush">
+                    {toDos.sort(function(a,b) {return b.priority-a.priority;}).map( todo => (
                     <NewToDo task={todo}/>
                 ))}
+                    </ul>
+                </div>
+            </div>
 
-            </React.Fragment>
         );
     }
 }
@@ -31,7 +31,7 @@ ToDos.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    toDos: state.toDos.toDos
+    toDos: state.toDos
 })
 
 export default connect(mapStateToProps, {getTodo})(ToDos);
