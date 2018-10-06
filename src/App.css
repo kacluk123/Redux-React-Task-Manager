@@ -22,10 +22,32 @@
   color: #61dafb;
 }
 .container{
-  width: 1040px;
+  width: 1300px;
   margin: 0 auto;
 }
+@media(max-width: 550px){
+  .btn.btn-primary.rwd{
+    position: static !important;
 
+  }
+  .container{
+    width: auto;
+    margin: 0;
+  }
+  .form-row{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center;
+  }
+
+  .invalid-feedback{
+    position: static !important;
+  }
+  .form-control.editedform{
+    width: 100% !important;
+  }
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -34,3 +56,5 @@
     transform: rotate(360deg);
   }
 }
+
+

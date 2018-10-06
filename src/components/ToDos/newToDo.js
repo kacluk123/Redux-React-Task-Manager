@@ -32,7 +32,10 @@ class NewToDo extends Component {
             id,
         }
 
-        this.props.changeTodo(editedTodo)
+        if(this.props.task.task !== this.state.task
+            && this.state.task !== ''){
+            this.props.changeTodo(editedTodo)
+        }
 
     }
 
