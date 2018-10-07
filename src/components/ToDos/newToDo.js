@@ -46,9 +46,13 @@ class NewToDo extends Component {
 
             return (
                 <li className="list-group-item">{ this.state.edit ?<input type="text" onChange={this.textChange} placeholder={task} className="form-control" id="formGroupExampleInput2"
-                                                                                value={this.state.task}/>: task }
-                    <i className="far fa-trash-alt" onClick={this.onDelete.bind(this, id )} style={{fontSize: '30px', float: 'right'}}></i>
-                    <i className="far fa-edit" onClick={this.onEdit} style={{fontSize: '30px', marginRight: '10px', float: 'right'}}></i>
+                                                                                value={this.state.task}/>: <span style={{width: '80%', wordBreak:'break-all',}}>{task}</span> }
+
+                         <div  style={{display: 'flex'}}>
+                             <div style={{fontSize: '20px', marginRight: '20px'}}><span>Priority</span><span>{priority}</span></div>
+                             <i className="far fa-trash-alt" onClick={this.onDelete.bind(this, id )} style={{fontSize: '30px', float: 'right', cursor:'pointer'}}></i>
+                    <i className="far fa-edit" onClick={this.onEdit} style={{fontSize: '30px',cursor:'pointer', marginRight: '10px', float: 'right'}}></i>
+                         </div>
                 </li>
             );
         }
