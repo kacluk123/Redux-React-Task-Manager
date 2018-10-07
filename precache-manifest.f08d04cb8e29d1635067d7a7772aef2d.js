@@ -8,15 +8,15 @@ self.__precacheManifest = [
     "url": "/Redux-React-Task-Manager/static/js/runtime~main.d1f443fd.js"
   },
   {
-    "revision": "8db3ee9bf3311fe64133",
-    "url": "/Redux-React-Task-Manager/static/js/main.8db3ee9b.chunk.js"
+    "revision": "1f1bc6339b284fcfe915",
+    "url": "/Redux-React-Task-Manager/static/js/main.1f1bc633.chunk.js"
   },
   {
     "revision": "4564bc49f7a8c68d9513",
     "url": "/Redux-React-Task-Manager/static/js/1.4564bc49.chunk.js"
   },
   {
-    "revision": "8db3ee9bf3311fe64133",
+    "revision": "1f1bc6339b284fcfe915",
     "url": "/Redux-React-Task-Manager/static/css/main.31951312.chunk.css"
   },
   {
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/Redux-React-Task-Manager/static/css/1.1f387ef3.chunk.css"
   },
   {
-    "revision": "07772fbb27a90e6341f03ce97f8722f6",
+    "revision": "3646b2907cbb6d11dc341c619f08f024",
     "url": "/Redux-React-Task-Manager/index.html"
   }
 ];
